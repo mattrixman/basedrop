@@ -1,0 +1,28 @@
+group 'com.clover.test.basedrop'
+version '0.0.1'
+
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+repositories {
+    jcenter()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java;
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
+dependencies {
+    compile gradleApi()
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+}
+
